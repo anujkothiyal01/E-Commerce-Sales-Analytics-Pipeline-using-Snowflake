@@ -6,6 +6,8 @@ This project is a full-fledged ELT pipeline built on **Snowflake**, designed to 
 
 ![image](https://github.com/user-attachments/assets/4ddacc03-380c-447a-93a1-a6fb7286cf77)
 
+![image](https://github.com/user-attachments/assets/48253309-65c5-4220-86f6-e4e33ed9d149)
+
 ---
 
 ## 🛠️ Tech Stack
@@ -50,7 +52,55 @@ This project is a full-fledged ELT pipeline built on **Snowflake**, designed to 
 
 ## 🧰 Components Walkthrough
 
-### ✅ 1. Storage Integration + Stages
+![image](https://github.com/user-attachments/assets/3a4d1163-97d8-417a-8fb6-b87c336557b1)
+
+
+### ✅ 1. 📂 one_time_setup/
+This folder contains one-time initialization scripts for setting up a Snowflake-based ELT pipeline with S3 as the data source and a multi-layer architecture: Bronze → Silver → Gold.
+
+#### setup.sql
+🧩 Purpose: Initializes the Snowflake environment for the ELT pipeline
+✅ Actions:
+* Creates the project database: alpha_db
+* Sets up three schemas for the layered architecture: bronze, silver, and gold
+* Defines raw data tables in the bronze schema:
+* customers, orders, order_items, payments, products
+* Creates a reusable CSV FILE FORMAT for ingesting data from S3
+* Establishes a secure STORAGE INTEGRATION with AWS using IAM role access
+
+#### storage_integration_setup.sql
+🧩 Purpose: Establishes secure data ingestion from S3 to Snowflake's Bronze layer
+✅ Actions:
+* Uses the previously created STORAGE INTEGRATION (ecommerce_s3_integration) to securely access S3 data
+* Creates external stages for each raw data folder in S3:
+  - s3_stage_customers, s3_stage_order_items, s3_stage_orders, s3_stage_payments, s3_stage_products
+* Defines Snowpipes with AUTO_INGEST = TRUE to automatically load new S3 files into Bronze tables
+* Each pipe targets a corresponding table in the Bronze schema (customers, orders, etc.)
+* Uses ON_ERROR = 'CONTINUE' to skip corrupt rows and ensure ingestion continuity
+
+#### stream_bronze_to_silver.sql
+🧩 Purpose: Tracks new data in Bronze tables for incremental processing
+✅ Actions:
+* Creates Streams on Bronze tables to capture INSERT operations
+* Enables change data capture (CDC) for:
+  - customers, orders, payments, order_items, products
+* Used in the Silver-layer procedure for incremental loading.
+
+#### test_stream_has_data.sql
+🧩 Purpose: Validates if the stream has captured new data
+✅ Actions:
+* Queries stream_customers to inspect incoming records from S3
+* Helps verify if Snowpipe ingestion and stream capture are working correctly
+
+#### stream_silver_to_gold.sql
+🧩 Purpose: Enables incremental loading from Silver to Gold layer
+✅ Actions:
+* Creates Streams on Silver tables to capture INSERT operations
+* Streams created on:
+* customers, orders, payments, order_items, products
+* Used for building Gold aggregations incrementally.
+
+
 ---
 
 ---
