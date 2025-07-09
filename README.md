@@ -2,6 +2,11 @@
 
 This project is a full-fledged ELT pipeline built on **Snowflake**, designed to process e-commerce sales data from raw S3 files through Bronze, Silver, and Gold layers — following modern data engineering best practices.
 
+## Architecture
+
+![image](https://github.com/user-attachments/assets/5d52f9ad-9327-47d3-a180-e8bfdd59f56f)
+
+
 ---
 
 ## 🛠️ Tech Stack
