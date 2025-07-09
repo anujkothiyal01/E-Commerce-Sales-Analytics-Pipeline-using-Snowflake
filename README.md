@@ -115,6 +115,12 @@ This folder contains one-time initialization scripts for setting up a Snowflake-
 
 ---
 
+### ✅ 3. 📂 silver/
+
+![image](https://github.com/user-attachments/assets/a3e93dc2-ba22-4b1d-92c6-39d55c125cd6)
+
+
+
 ## 🧠 Key Concepts Learned
 Real-time ingestion with Snowpipe + SQS
 
