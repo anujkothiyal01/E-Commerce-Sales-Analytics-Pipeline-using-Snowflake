@@ -56,7 +56,7 @@ This project is a full-fledged ELT pipeline built on **Snowflake**, designed to 
 
 ---
 
-🧠 Key Concepts Learned
+## 🧠 Key Concepts Learned
 Real-time ingestion with Snowpipe + SQS
 
 Incremental ELT using Streams + Tasks
@@ -69,7 +69,7 @@ Python integration for advanced control
 
 ---
 
-👨‍💻 Author
+## 👨‍💻 Author
 
 Made with ❤️ by Anuj Kothiyal
 Cloud & Data Engineering Enthusiast
