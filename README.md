@@ -47,3 +47,24 @@ This project is a full-fledged ELT pipeline built on **Snowflake**, designed to 
 ## 🧰 Components Walkthrough
 
 ### ✅ 1. Storage Integration + Stages
+---
+
+---
+
+🧠 Key Concepts Learned
+Real-time ingestion with Snowpipe + SQS
+
+Incremental ELT using Streams + Tasks
+
+End-to-end automation via stored procedures
+
+Monitoring via TASK_HISTORY() and CLI
+
+Python integration for advanced control
+
+---
+
+👨‍💻 Author
+Made with ❤️ by Anuj Kothiyal
+Cloud & Data Engineering Enthusiast
+
