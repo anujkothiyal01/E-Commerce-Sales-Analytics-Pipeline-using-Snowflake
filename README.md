@@ -4,8 +4,7 @@ This project is a full-fledged ELT pipeline built on **Snowflake**, designed to 
 
 ## Architecture
 
-![image](https://github.com/user-attachments/assets/5d52f9ad-9327-47d3-a180-e8bfdd59f56f)
-
+![image](https://github.com/user-attachments/assets/4ddacc03-380c-447a-93a1-a6fb7286cf77)
 
 ---
 
