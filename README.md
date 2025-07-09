@@ -103,6 +103,16 @@ This folder contains one-time initialization scripts for setting up a Snowflake-
 
 ---
 
+### ✅ 2. 📂 bronze/
+
+![image](https://github.com/user-attachments/assets/3df4d473-05a4-4aac-bd48-6909f25256ad)
+
+#### test_customers_table.sql
+🧩 Purpose: Validates raw customer data in the Bronze layer
+✅ Actions:
+* Runs a simple SELECT * FROM customers in the bronze schema
+* Verifies that data ingestion via Snowpipe was successful
+
 ---
 
 ## 🧠 Key Concepts Learned
